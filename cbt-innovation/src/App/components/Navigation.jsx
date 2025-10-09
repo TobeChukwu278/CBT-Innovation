@@ -11,6 +11,14 @@ import {
     FaUserCircle
 } from 'react-icons/fa';
 
+// Import your page components
+import Dashboard from '../pages/Dashboard'; // Adjust the path as needed
+// Import other page components as you create them
+// import Tests from '../pages/Tests';
+// import Analytics from '../pages/Analytics';
+// import Settings from '../pages/Settings';
+// import Help from '../pages/Help';
+
 const Navigation = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeItem, setActiveItem] = useState('dashboard');
@@ -20,31 +28,48 @@ const Navigation = () => {
             id: 'dashboard',
             label: 'Dashboard',
             icon: FaHome,
-            description: 'Overview of your learning progress'
+            description: 'Overview of your learning progress',
+            component: <Dashboard />
         },
         {
             id: 'tests',
             label: 'Tests & Practice',
             icon: FaClipboardList,
-            description: 'Take practice tests and exams'
+            description: 'Take practice tests and exams',
+            component: <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">Tests & Practice</h1>
+                <p className="text-gray-600">Practice tests and exam preparation content will appear here.</p>
+            </div>
         },
         {
             id: 'analytics',
             label: 'Analytics',
             icon: FaChartBar,
-            description: 'Detailed performance insights'
+            description: 'Detailed performance insights',
+            component: <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">Analytics</h1>
+                <p className="text-gray-600">Performance analytics and insights will appear here.</p>
+            </div>
         },
         {
             id: 'settings',
             label: 'Settings',
             icon: FaCog,
-            description: 'Customize your experience'
+            description: 'Customize your experience',
+            component: <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">Settings</h1>
+                <p className="text-gray-600">Platform settings and preferences will appear here.</p>
+            </div>
         },
         {
             id: 'help',
             label: 'Help & Support',
             icon: FaQuestionCircle,
-            description: 'Get help and documentation'
+            description: 'Get help and documentation',
+            component: <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">Help & Support</h1>
+                <p className="text-gray-600">Help documentation and support resources will appear here.</p>
+            </div>
         }
     ];
 
@@ -52,9 +77,14 @@ const Navigation = () => {
         const Icon = item.icon;
         const isActive = activeItem === item.id;
 
+        const handleClick = () => {
+            setActiveItem(item.id);
+            setIsMobileMenuOpen(false); // Close mobile menu when item is clicked
+        };
+
         return (
             <button
-                onClick={() => setActiveItem(item.id)}
+                onClick={handleClick}
                 className={`
                     w-full flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 group
                     ${isActive
@@ -98,6 +128,11 @@ const Navigation = () => {
                 `} />
             </button>
         );
+    };
+
+    const CurrentContent = () => {
+        const currentItem = navItems.find(item => item.id === activeItem);
+        return currentItem ? currentItem.component : null;
     };
 
     return (
@@ -168,7 +203,7 @@ const Navigation = () => {
                                     <FaUserCircle className="text-white text-xl" />
                                 </div>
                                 <div className="flex-1">
-                                    <div className="font-semibold text-gray-900 text-sm">Student Name</div>
+                                    <div className="font-semibold text-gray-900 text-sm">TobeChukwu Ejiofor</div>
                                     <div className="text-xs text-gray-500">Premium Member</div>
                                 </div>
                             </div>
@@ -238,7 +273,7 @@ const Navigation = () => {
                 </div>
             </aside>
 
-            {/* Main Content Area (for demonstration) */}
+            {/* Main Content Area */}
             <main className={`
                 min-h-screen bg-gray-50 transition-all duration-300
                 lg:ml-80
@@ -246,17 +281,8 @@ const Navigation = () => {
                 <div className={`
                     pt-20 lg:pt-0 p-6 lg:p-8
                 `}>
-                    {/* This is where your page content would go */}
-                    <div className="max-w-4xl">
-                        <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
-                            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                                {navItems.find(item => item.id === activeItem)?.label}
-                            </h1>
-                            <p className="text-gray-600">
-                                {navItems.find(item => item.id === activeItem)?.description}
-                            </p>
-                        </div>
-                    </div>
+                    {/* Dynamic Content based on active navigation item */}
+                    <CurrentContent />
                 </div>
             </main>
         </>
