@@ -12,9 +12,8 @@ import {
 } from 'react-icons/fa';
 
 // Import your page components
-import Dashboard from '../pages/Dashboard'; // Adjust the path as needed
-// Import other page components as you create them
-// import Tests from '../pages/Tests';
+import Dashboard from '../pages/Dashboard';
+import TestsPractice from '../pages/TestsPractice';
 // import Analytics from '../pages/Analytics';
 // import Settings from '../pages/Settings';
 // import Help from '../pages/Help';
@@ -36,10 +35,7 @@ const Navigation = () => {
             label: 'Tests & Practice',
             icon: FaClipboardList,
             description: 'Take practice tests and exams',
-            component: <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">Tests & Practice</h1>
-                <p className="text-gray-600">Practice tests and exam preparation content will appear here.</p>
-            </div>
+            component: <TestsPractice />
         },
         {
             id: 'analytics',

@@ -193,7 +193,7 @@ const Dashboard = () => {
                         <div className="w-10"></div>
 
                         {/* Page Title - Centered */}
-                        <h1 className="text-xl sm:text-2xl font-bold text-gray-900 text-center flex-1">
+                        <h1 className="text-xl sm:text-2xl font-bold text-gray-900 text-left flex-1">
                             Dashboard
                         </h1>
 
