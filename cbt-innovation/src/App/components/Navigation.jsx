@@ -14,7 +14,7 @@ import {
 // Import your page components
 import Dashboard from '../pages/Dashboard';
 import TestsPractice from '../pages/TestsPractice';
-// import Analytics from '../pages/Analytics';
+import Analytics from '../pages/Analytics';
 // import Settings from '../pages/Settings';
 // import Help from '../pages/Help';
 
@@ -42,10 +42,7 @@ const Navigation = () => {
             label: 'Analytics',
             icon: FaChartBar,
             description: 'Detailed performance insights',
-            component: <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">Analytics</h1>
-                <p className="text-gray-600">Performance analytics and insights will appear here.</p>
-            </div>
+            component: <Analytics />
         },
         {
             id: 'settings',
