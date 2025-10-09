@@ -15,7 +15,7 @@ import {
 import Dashboard from '../pages/Dashboard';
 import TestsPractice from '../pages/TestsPractice';
 import Analytics from '../pages/Analytics';
-// import Settings from '../pages/Settings';
+import Settings from '../pages/Settings';
 // import Help from '../pages/Help';
 
 const Navigation = () => {
@@ -49,10 +49,7 @@ const Navigation = () => {
             label: 'Settings',
             icon: FaCog,
             description: 'Customize your experience',
-            component: <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">Settings</h1>
-                <p className="text-gray-600">Platform settings and preferences will appear here.</p>
-            </div>
+            component: <Settings />
         },
         {
             id: 'help',
