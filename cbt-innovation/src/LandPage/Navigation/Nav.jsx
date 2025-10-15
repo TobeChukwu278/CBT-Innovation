@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Nav = () => {
@@ -53,12 +54,15 @@ const Nav = () => {
 
                     {/* Desktop CTA */}
                     <div className='hidden md:flex items-center gap-4'>
-                        <button className='font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-200'>
+                        <NavLink to="/auth" className='font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-200 cursor-pointer'>
                             Sign In
-                        </button>
-                        <button className='bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200'>
+                        </NavLink>
+                        <NavLink
+                            to="/auth"
+                            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 inline-block text-center"
+                        >
                             Start Free Trial
-                        </button>
+                        </NavLink>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -88,10 +92,10 @@ const Nav = () => {
                             </a>
                         ))}
                         <div className='flex flex-col gap-2 pt-2 border-t border-gray-200'>
-                            <button className='font-semibold text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors'>
+                            <button className='font-semibold text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer'>
                                 Sign In
                             </button>
-                            <button className='bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg shadow-md transition-colors'>
+                            <button className='bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg shadow-md transition-colors cursor-pointer'>
                                 Start Free Trial
                             </button>
                         </div>

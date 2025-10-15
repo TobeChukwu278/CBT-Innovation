@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 const HeroBackground = () => {
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -48,12 +49,12 @@ const HeroBackground = () => {
 
                     {/* CTA Buttons */}
                     <div className='flex flex-col sm:flex-row gap-4 justify-center mt-8'>
-                        <button className='bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200'>
+                        <NavLink to="/auth" className='bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200'>
                             Start Free Trial
-                        </button>
-                        <button className='bg-white/10 cursor-pointer hover:bg-white/20 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-lg border border-white/30 transform hover:scale-105 transition-all duration-200'>
+                        </NavLink>
+                        <NavLink to="/demo" className='bg-white/10 cursor-pointer hover:bg-white/20 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-lg border border-white/30 transform hover:scale-105 transition-all duration-200'>
                             View Demo
-                        </button>
+                        </NavLink>
                     </div>
 
                     {/* Trust indicators */}

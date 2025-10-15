@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route, Routes } from "react-router-dom"
 // import Hero from './LandPage/Hero/Hero'
 import Land from './LandPage/Land/Land'
 import AuthPage from './App/pages/AuthPage'
@@ -7,11 +8,13 @@ import Navigation from './App/components/Navigation'
 const App = () => {
   return (
     <div className="min-h-screen bg-gray-200 p-2">
-      {/* <h1 className="text-4xl font-bold">Hello, Tailwind CSS!</h1> */}
-      {/* <Land /> */}
-      <Navigation />
+      <Routes>
+        <Route path="/" element={<Land />} />
+        <Route path="/auth" element={<AuthPage />} />
+      </Routes>
+      {/* <Hero /> */}
+      {/* <Navigation /> */}
       {/* <Stepper /> */}
-      {/* <AuthPage /> */}
     </div>
   )
 }
